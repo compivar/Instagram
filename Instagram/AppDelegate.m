@@ -17,16 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource: @"Keys" ofType: @"plist"];
+        NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile: path];
 
-            configuration.applicationId = @"0Y3fI6ht7XEcPL8ODz9hroIvZ0XmwSv0KuctAhgE"; // <- UPDATE
-            configuration.clientKey = @"hO6EqHrMNToBYwDicMokhn3WgtBBXwdm6sC4xvxK"; // <- UPDATE
+//        NSString *key = [dict objectForKey: @"Aplication ID"];
+//        NSString *secret = [dict objectForKey: @"Client Key"];
+
+        configuration.applicationId = [dict objectForKey: @"Application ID"]; // <- UPDATE
+        configuration.clientKey = [dict objectForKey: @"Client Key"]; // <- UPDATE
             configuration.server = @"https://parseapi.back4app.com";
     }];
 
     [Parse initializeWithConfiguration:config];
     PFObject *gameScore = [PFObject objectWithClassName:@"GameScore"];
-    gameScore[@"score"] = @1337;
-    gameScore[@"playerName"] = @"Sean Plott";
+    gameScore[@"score"] = @1007;
+    gameScore[@"playerName"] = @"Trea Turner";
     gameScore[@"cheatMode"] = @NO;
     [gameScore saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
