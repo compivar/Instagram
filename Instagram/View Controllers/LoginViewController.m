@@ -90,7 +90,6 @@
             // optional code for what happens after the alert controller has finished presenting
         }];
     }
-
     
     // initialize a user object
     PFUser *newUser = [PFUser user];
@@ -107,7 +106,6 @@
         } else {
             NSLog(@"User registered successfully");
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-
             // manually segue to logged in view
         }
     }];
