@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="XCc-KQ-Uy3">
             <objects>
-                <viewController id="qu8-ux-9VY" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="qu8-ux-9VY" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dz0-yp-Byr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,7 +77,13 @@
                         <viewLayoutGuide key="safeArea" id="DXf-jz-Zjd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feed" id="VD2-Zg-0hM"/>
+                    <navigationItem key="navigationItem" title="Feed" id="VD2-Zg-0hM">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="1rr-HV-R2h">
+                            <connections>
+                                <action selector="didTapLogout:" destination="vaH-Yc-rcs" id="arc-ZM-vl6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weu-3J-3PT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +92,7 @@
         <!--Navigation Controller-->
         <scene sceneID="m57-LC-shd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="JBW-eP-42R" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="JBW-eP-42R" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qe3-Yq-6ix">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
