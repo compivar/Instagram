@@ -9,6 +9,7 @@
 #import "SceneDelegate.h"
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
+#import "ComposeViewController.h"
 
 
 @interface HomeFeedViewController ()
@@ -32,6 +33,15 @@
     }];
     
 }
+
+- (IBAction)composeAPost:(id)sender {
+    SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ComposeViewController *composeViewController = [storyboard instantiateViewControllerWithIdentifier:@"ComposeViewController"];
+    mySceneDelegate.window.rootViewController = composeViewController;
+}
+
 
 /*
 #pragma mark - Navigation
