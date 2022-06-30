@@ -146,7 +146,7 @@
         <!--Compose View Controller-->
         <scene sceneID="Cop-AE-0lf">
             <objects>
-                <viewController title="Compose View Controller" id="amy-Wt-J9A" customClass="ComposeViewController" sceneMemberID="viewController">
+                <viewController title="Compose View Controller" modalPresentationStyle="fullScreen" id="amy-Wt-J9A" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6vx-hL-V29">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="fiG-5j-Uej">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="s4I-0Y-WRw">
+                            <connections>
+                                <action selector="cancelComposition:" destination="amy-Wt-J9A" id="J1Z-3b-nww"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="Qmc-LO-bDW">
                             <connections>
                                 <action selector="sharePost:" destination="amy-Wt-J9A" id="X8W-nn-USs"/>

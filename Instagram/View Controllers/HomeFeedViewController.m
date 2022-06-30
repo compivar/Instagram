@@ -22,12 +22,20 @@
 @implementation HomeFeedViewController
 
 - (void)viewDidLoad {
-    self.homeFeedTableView.dataSource = self;
-    self.homeFeedTableView.dataSource = self;
     [super viewDidLoad];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
+    self.homeFeedTableView.refreshControl = refreshControl;
+    self.homeFeedTableView.dataSource = self;
+    self.homeFeedTableView.delegate = self;
     // Do any additional setup after loading the view.
-    [self fetchPosts];
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self fetchPosts];
+
+}
+
 - (IBAction)didTapLogout:(id)sender {
     SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
 
