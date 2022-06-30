@@ -22,6 +22,7 @@
 		AD2806DD286A4D3F003EFD2A /* InstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2806DC286A4D3F003EFD2A /* InstagramUITests.m */; };
 		AD2806DF286A4D3F003EFD2A /* InstagramUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2806DE286A4D3F003EFD2A /* InstagramUITestsLaunchTests.m */; };
 		AD2806EE286A63BB003EFD2A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2806ED286A63BB003EFD2A /* LoginViewController.m */; };
+		AD76F225286E12BF00E22837 /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD76F224286E12BF00E22837 /* PostDetailsViewController.m */; };
 		ADB16D9D286CC33100B755D4 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB16D9C286CC33100B755D4 /* Post.m */; };
 		ADB16DA1286D046D00B755D4 /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADB16DA0286D046D00B755D4 /* PostTableViewCell.m */; };
 		ADC86C02286A692E0020196B /* HomeFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADC86C01286A692E0020196B /* HomeFeedViewController.m */; };
@@ -72,6 +73,8 @@
 		AD2806DE286A4D3F003EFD2A /* InstagramUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramUITestsLaunchTests.m; sourceTree = "<group>"; };
 		AD2806EC286A63BB003EFD2A /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		AD2806ED286A63BB003EFD2A /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		AD76F223286E12BF00E22837 /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostDetailsViewController.h; sourceTree = "<group>"; };
+		AD76F224286E12BF00E22837 /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostDetailsViewController.m; sourceTree = "<group>"; };
 		ADB16D9B286CC33100B755D4 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		ADB16D9C286CC33100B755D4 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		ADB16D9F286D046D00B755D4 /* PostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				ADC86C01286A692E0020196B /* HomeFeedViewController.m */,
 				AD19CC53286B874E00F29ECD /* ComposeViewController.h */,
 				AD19CC54286B874E00F29ECD /* ComposeViewController.m */,
+				AD76F223286E12BF00E22837 /* PostDetailsViewController.h */,
+				AD76F224286E12BF00E22837 /* PostDetailsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				AD2806EE286A63BB003EFD2A /* LoginViewController.m in Sources */,
 				ADB16D9D286CC33100B755D4 /* Post.m in Sources */,
 				ADB16DA1286D046D00B755D4 /* PostTableViewCell.m in Sources */,
+				AD76F225286E12BF00E22837 /* PostDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +649,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N257UNNK4H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -670,6 +677,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N257UNNK4H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Instagram/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -30,6 +30,7 @@
     self.postedImage.file = post[@"image"];
     [self.postedImage loadInBackground];
     self.postedCaption.text = post.caption;
+    //self.postedCaption.text = [NSString stringWithFormat:@"%@", post.createdAt];
     
 }
 

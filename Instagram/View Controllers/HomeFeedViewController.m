@@ -11,9 +11,10 @@
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
 #import "PostTableViewCell.h"
+#import "PostDetailsViewController.h"
 
 
-@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeFeedViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *homeFeedTableView;
 @property (nonatomic, strong) NSMutableArray *arrayOfPosts;
 
@@ -59,13 +60,22 @@
 
 /*
 #pragma mark - Navigation
-
+*/
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"PostDetailsSegue"]){
+        Post *post = self.arrayOfPosts[[self.homeFeedTableView indexPathForCell:sender].row];
+        PostDetailsViewController *detailsController = [segue destinationViewController];
+        detailsController.currentPost = post;
+    } else {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
 }
-*/
+
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"forIndexPath:indexPath];
@@ -81,6 +91,7 @@
 - (void) fetchPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     //[query whereKey:@"likesCount" greaterThan:@100];
+    [query orderByDescending:@"createdAt"];
     query.limit = 20;
 
     // fetch data asynchronously
@@ -97,5 +108,11 @@
     }];
 }
  
+
+- (void)didPost:(nonnull Post *)post {
+    [self.arrayOfPosts insertObject:post atIndex:0];
+    [self.homeFeedTableView reloadData];
+}
+
 
 @end
