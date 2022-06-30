@@ -70,10 +70,55 @@
         <!--Feed-->
         <scene sceneID="FEp-e4-WTU">
             <objects>
-                <viewController id="vaH-Yc-rcs" customClass="HomeFeedViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeFeedViewController" modalPresentationStyle="fullScreen" id="vaH-Yc-rcs" customClass="HomeFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="riA-lt-rXJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DG1-qB-uYF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="265" id="T5d-wh-W13" customClass="PostTableViewCell">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="265"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T5d-wh-W13" id="kxY-KS-QHw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="265"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8dG-Ns-rGT" customClass="PFImageView">
+                                                    <rect key="frame" x="92" y="0.0" width="230" height="197"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="230" id="tWL-vW-2rI"/>
+                                                        <constraint firstAttribute="height" constant="197" id="wDg-sT-fb5"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV4-uk-yqJ">
+                                                    <rect key="frame" x="92" y="197" width="41.5" height="29"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eV4-uk-yqJ" secondAttribute="bottom" constant="28" id="IAA-S6-kys"/>
+                                                <constraint firstItem="eV4-uk-yqJ" firstAttribute="leading" secondItem="kxY-KS-QHw" secondAttribute="leadingMargin" constant="72" id="PV2-i7-e3e"/>
+                                                <constraint firstAttribute="trailing" secondItem="8dG-Ns-rGT" secondAttribute="trailing" constant="92" id="S0L-Xl-P55"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8dG-Ns-rGT" secondAttribute="bottom" constant="8" id="Tm7-TI-bok"/>
+                                                <constraint firstItem="eV4-uk-yqJ" firstAttribute="top" secondItem="8dG-Ns-rGT" secondAttribute="bottom" id="aZw-GJ-Orc"/>
+                                                <constraint firstItem="8dG-Ns-rGT" firstAttribute="top" secondItem="kxY-KS-QHw" secondAttribute="top" id="hDJ-Cw-Ufe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postedCaption" destination="eV4-uk-yqJ" id="ECJ-LF-tfI"/>
+                                            <outlet property="postedImage" destination="8dG-Ns-rGT" id="lAz-8m-Zv8"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="DXf-jz-Zjd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -90,10 +135,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="homeFeedTableView" destination="DG1-qB-uYF" id="aSN-yW-dTM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Weu-3J-3PT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730" y="98"/>
+            <point key="canvasLocation" x="2728.985507246377" y="97.767857142857139"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="Cop-AE-0lf">
@@ -183,6 +231,9 @@
         <image name="insta_camera_btn" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

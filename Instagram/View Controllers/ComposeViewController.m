@@ -7,6 +7,9 @@
 
 #import "ComposeViewController.h"
 #import "Post.h"
+#import "PostTableViewCell.h"
+#import "HomeFeedViewController.h"
+#import "SceneDelegate.h"
 
 
 @interface ComposeViewController ()
@@ -50,6 +53,11 @@
     [Post postUserImage:self.selectedImage.image withCaption:self.postCaption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         
     }];
+    SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeFeedViewController *HomeFeedViewController = [storyboard instantiateViewControllerWithIdentifier:@"HomeFeedViewController"];
+    mySceneDelegate.window.rootViewController = HomeFeedViewController;
 }
 
 /*

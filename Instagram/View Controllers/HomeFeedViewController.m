@@ -10,17 +10,23 @@
 #import "Parse/Parse.h"
 #import "LoginViewController.h"
 #import "ComposeViewController.h"
+#import "PostTableViewCell.h"
 
 
-@interface HomeFeedViewController ()
+@interface HomeFeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *homeFeedTableView;
+@property (nonatomic, strong) NSMutableArray *arrayOfPosts;
 
 @end
 
 @implementation HomeFeedViewController
 
 - (void)viewDidLoad {
+    self.homeFeedTableView.dataSource = self;
+    self.homeFeedTableView.dataSource = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self fetchPosts];
 }
 - (IBAction)didTapLogout:(id)sender {
     SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
@@ -52,5 +58,36 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"forIndexPath:indexPath];
+    Post *post = self.arrayOfPosts[indexPath.row];
+    cell.currentPost = post;
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfPosts.count;
+}
+
+- (void) fetchPosts {
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    //[query whereKey:@"likesCount" greaterThan:@100];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+            self.arrayOfPosts = [posts mutableCopy];
+            [self.homeFeedTableView reloadData];
+            [self.homeFeedTableView.refreshControl endRefreshing];
+
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+ 
 
 @end
