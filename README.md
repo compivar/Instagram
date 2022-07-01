@@ -49,6 +49,7 @@ Here's a walkthrough of implemented user stories:
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
+
 ![O07zhEbHmV](https://user-images.githubusercontent.com/96851799/176798240-bc21e864-d2e8-44c2-b0a6-49d9dbbba6a1.gif)
 
 ![Da4tBuUmPE](https://user-images.githubusercontent.com/96851799/176798250-0ddd3297-48d7-4f61-b8ca-9c2c35b23533.gif)
@@ -65,7 +66,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2022] [Isaac Varela]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
