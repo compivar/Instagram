@@ -16,24 +16,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
-- (IBAction)didTapLogin:(id)sender {
+- (IBAction)onLoginClick:(id)sender {
     [self loginUser];
 }
-- (IBAction)didTapSignUp:(id)sender {
+- (IBAction)onSignUpClick:(id)sender {
     [self registerUser];
 }
 
 - (void)loginUser {
-    if(([self.usernameField.text isEqual:@""]) || ([self.passwordField.text isEqual:@""])){
+    if (([self.usernameField.text isEqual:@""]) || ([self.passwordField.text isEqual:@""])) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Empty Field" message:@"Make sure the Username and Password fields are filled in." preferredStyle:(UIAlertControllerStyleAlert)];
-        // create a cancel action
+        
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                             style:UIAlertActionStyleCancel
                                                           handler:^(UIAlertAction * _Nonnull action) {
                                                                  // handle cancel response here. Doing nothing will dismiss the view.
-                                                          }];
+        }];
         // add the cancel action to the alertController
         [alert addAction:cancelAction];
 
@@ -42,7 +41,7 @@
                                                            style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
                                                                  // handle response here.
-                                                         }];
+        }];
         // add the OK action to the alert controller
         [alert addAction:okAction];
         
@@ -50,7 +49,6 @@
             // optional code for what happens after the alert controller has finished presenting
         }];
     }
-    
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
@@ -66,14 +64,14 @@
 }
 
 - (void)registerUser {
-    if(([self.usernameField.text isEqual:@""]) || ([self.passwordField.text isEqual:@""])){
+    if (([self.usernameField.text isEqual:@""]) || ([self.passwordField.text isEqual:@""])){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Empty Field" message:@"Make sure the Username and Password fields are filled in." preferredStyle:(UIAlertControllerStyleAlert)];
         // create a cancel action
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                             style:UIAlertActionStyleCancel
                                                           handler:^(UIAlertAction * _Nonnull action) {
                                                                  // handle cancel response here. Doing nothing will dismiss the view.
-                                                          }];
+        }];
         // add the cancel action to the alertController
         [alert addAction:cancelAction];
 
@@ -82,7 +80,7 @@
                                                            style:UIAlertActionStyleDefault
                                                          handler:^(UIAlertAction * _Nonnull action) {
                                                                  // handle response here.
-                                                         }];
+        }];
         // add the OK action to the alert controller
         [alert addAction:okAction];
         
@@ -94,9 +92,7 @@
     // initialize a user object
     PFUser *newUser = [PFUser user];
 
-    // set user properties
     newUser.username = self.usernameField.text;
-    //newUser.email = self.emailField.text;
     newUser.password = self.passwordField.text;
 
     // call sign up function on the object
@@ -111,16 +107,4 @@
     }];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)userName:(id)sender {
-}
 @end

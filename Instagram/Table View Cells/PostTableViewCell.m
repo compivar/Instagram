@@ -15,13 +15,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setCurrentPost:(Post *)post {
@@ -30,8 +27,6 @@
     self.postedImage.file = post[@"image"];
     [self.postedImage loadInBackground];
     self.postedCaption.text = post.caption;
-    //self.postedCaption.text = [NSString stringWithFormat:@"%@", post.createdAt];
-    
 }
 
 @end

@@ -48,16 +48,11 @@
     return newImage;
 }
 
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {//Used to be a minus function, but we turned it into a plus function
-    
-    //UIImage *resizedImage = [self resizeImage:image withSize:10];
-    
-    // check if image is not nil
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
     NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }

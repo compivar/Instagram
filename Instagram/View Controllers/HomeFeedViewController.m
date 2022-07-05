@@ -29,7 +29,6 @@
     self.homeFeedTableView.refreshControl = refreshControl;
     self.homeFeedTableView.dataSource = self;
     self.homeFeedTableView.delegate = self;
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -37,14 +36,13 @@
 
 }
 
-- (IBAction)didTapLogout:(id)sender {
+- (IBAction)onLogout:(id)sender {
     SceneDelegate *mySceneDelegate = (SceneDelegate * ) UIApplication.sharedApplication.connectedScenes.allObjects.firstObject.delegate;
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     mySceneDelegate.window.rootViewController = loginViewController;
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
     }];
     
 }
@@ -57,15 +55,8 @@
     mySceneDelegate.window.rootViewController = composeViewController;
 }
 
-
-/*
-#pragma mark - Navigation
-*/
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if([segue.identifier isEqualToString:@"PostDetailsSegue"]){
+    if ([segue.identifier isEqualToString:@"PostDetailsSegue"]) {
         Post *post = self.arrayOfPosts[[self.homeFeedTableView indexPathForCell:sender].row];
         PostDetailsViewController *detailsController = [segue destinationViewController];
         detailsController.currentPost = post;
@@ -90,14 +81,12 @@
 
 - (void) fetchPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    //[query whereKey:@"likesCount" greaterThan:@100];
     [query orderByDescending:@"createdAt"];
     query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            // do something with the array of object returned by the call
             self.arrayOfPosts = [posts mutableCopy];
             [self.homeFeedTableView reloadData];
             [self.homeFeedTableView.refreshControl endRefreshing];
